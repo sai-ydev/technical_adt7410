@@ -4554,7 +4554,7 @@ Warning: This is the KIT version of this package. This package has a smaller dia
 <part name="SUPPLY3" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="3.3V" device=""/>
 <part name="R1" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" deviceset="2.2KOHM" device="-0603-1/10W-1%" package3d_urn="urn:adsk.eagle:package:39650/1" value="2.2k"/>
 <part name="R2" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" deviceset="2.2KOHM" device="-0603-1/10W-1%" package3d_urn="urn:adsk.eagle:package:39650/1" value="2.2k"/>
-<part name="Q1" library="SparkFun-DiscreteSemi" library_urn="urn:adsk.eagle:library:514" deviceset="MOSFET-NCH" device="-2N7002PW" package3d_urn="urn:adsk.eagle:package:38456/1" value="2N7002"/>
+<part name="Q1" library="SparkFun-DiscreteSemi" library_urn="urn:adsk.eagle:library:514" deviceset="MOSFET-NCH" device="-2N7002PW" package3d_urn="urn:adsk.eagle:package:38456/1" value="XP151A12A2MR-G"/>
 <part name="GND6" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="GND" device=""/>
 <part name="R3" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" deviceset="1MOHM" device="-0603-1/4W-5%" package3d_urn="urn:adsk.eagle:package:39650/1" value="1M"/>
 <part name="R4" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" deviceset="10OHM" device="-0603-1/10W-1%" package3d_urn="urn:adsk.eagle:package:39650/1" value="10"/>
@@ -4937,7 +4937,7 @@ They are open-drain.</text>
 <attribute name="VALUE" x="39.116" y="127.508" size="1.016" layer="96" font="vector" ratio="20" rot="R180" align="top-center"/>
 </instance>
 <instance part="Q1" gate="NMOS" x="195.58" y="119.38" smashed="yes">
-<attribute name="NAME" x="200.66" y="119.38" size="1.016" layer="95" font="vector" ratio="20"/>
+<attribute name="NAME" x="200.66" y="119.38" size="1.778" layer="95" font="vector" ratio="20"/>
 <attribute name="VALUE" x="200.66" y="116.84" size="1.778" layer="96" font="vector" ratio="20"/>
 </instance>
 <instance part="GND6" gate="1" x="198.12" y="93.98" smashed="yes">

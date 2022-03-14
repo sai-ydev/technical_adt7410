@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """ADT7420 Driver
 
 This module provides the requisite drivers for interfacing
@@ -75,7 +77,7 @@ class ADT7420:
         reg_data = None
         try:
             reg_data = self._bus.read_byte_data(self._addr, reg_addr)
-        except IOError as error:
+        except IOError:
             pass
 
         return reg_data
@@ -85,7 +87,7 @@ class ADT7420:
         results = None
         try:
             results = self._bus.read_i2c_block_data(self._addr, reg_addr, 2)
-        except IOError as error:
+        except IOError:
             pass
         return results
 
@@ -93,14 +95,14 @@ class ADT7420:
         """ Write one byte to register """
         try:
             self._bus.write_byte_data(self._addr, reg_addr, data)
-        except IOError as error:
+        except IOError:
             pass
 
     def write_word(self, reg_addr, data):
         """ Write 2 bytes to register """
         try:
             self._bus.write_i2c_block_data(self._addr, reg_addr, data)
-        except IOError as error:
+        except IOError:
             pass
 
     # convert temp to hex value
@@ -176,7 +178,7 @@ class ADT7420:
         """ Software reset of the ADC """
         try:
             self._bus.write_byte(self._addr, SOFTWARE_RESET)
-        except IOError as error:
+        except IOError:
             pass
 
         # reset takes a few microseconds
@@ -185,16 +187,16 @@ class ADT7420:
 
 if __name__ == "__main__":
 
-    adc = ADT7420(bus=1, addr=0x48)
+    temp_sensor = ADT7420(bus=1, addr=0x48)
 
-    if adc.read_id() == 0xCB:
+    if temp_sensor.read_id() == 0xCB:
         print("Chip read successful")
     else:
         print("No ADC detected")
         sys.exit(1)
 
     while True:
-        temp = adc.read_temp()
+        temp = temp_sensor.read_temp()
         if temp:
             print("Temperature: {0} C".format(temp))
         sleep(2)
