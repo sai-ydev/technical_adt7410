@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+""" Thermostat class
+
+This module implements a thermostat that reads temperature from a sensor
+and controls a heater.
+
+"""
 import logging
 import time
 import sys
@@ -12,6 +19,7 @@ HIGH = 1
 LOW = 0
 
 class Thermostat:
+    """ Thermostat class """
     def __init__(self, bus=1, address=0x48, temperature=0, hysteresis=5):
         # ADC is configured to be 13 bits by default
         self._adc = adt7420.ADT7420(bus, address)
@@ -39,19 +47,20 @@ class Thermostat:
         GPIO.output(HEATER, LOW)
 
     def measure_temperature(self):
+        """ returns temperature from the sensor """
         return self._adc.read_temp()
 
     def _log_temperature(self, temperature):
-        # Call this when you want to record the temperature in the logs. When used
-        # in production there will be a logging profile to make it just route to
-        # the appropriate place.
+        """ Call this when you want to record the temperature in the logs. When used
+        in production there will be a logging profile to make it just route to
+        the appropriate place. """
         logging.log(logging.INFO, f'{time.asctime()}: AD7414 {temperature} degC')
 
     def one_hz(self):
-        # This will get called once per second by the main software, from a thread
-        # set aside to do this (that is to say, don't worry about spawning your own
-        # thread here). You can assume that you don't need to protect against the
-        # supervisory software crashing and failing to run this call.
+        """This will get called once per second by the main software, from a thread
+        set aside to do this (that is to say, don't worry about spawning your own
+        thread here). You can assume that you don't need to protect against the
+        supervisory software crashing and failing to run this call."""
         temperature = self.measure_temperature()
         avg = 0.0
         if temperature:
@@ -73,17 +82,19 @@ class Thermostat:
         self._adc.set_temp_reg(adt7420.T_LOW_SETPOINT_MSB_REG, temperature)
 
     def set_hysteresis(self, value):
-        # Setting the hysteresis parameter
+        """Setting the hysteresis parameter """
         self._hysteresis = value
         self._adc.set_temp_reg(adt7420.T_HYST_SETPOINT_REG, value)
 
     def int_callback(self, pin):
+        """ Interrupt callback for turning on heater """
         if not GPIO.input(pin):
             self._heater = True
             GPIO.output(HEATER, HIGH)
 
 
-def signal_handler(sig, frame):
+def signal_handler():
+    """ Cleanup of GPIO pins upone exit"""
     GPIO.cleanup()
     sys.exit(0)
 
