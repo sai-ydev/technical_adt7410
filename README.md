@@ -20,3 +20,7 @@ Write enough Python software to use this as a thermostat that can keep the tempe
 ## Hardware
 
 The Eagle PCB schematic and layout files are available in the `hardware` folder. It also includes a BOM file and Gerber files.
+
+## Sources
+1. My STM32 drivers for ADT7410 - [Link](https://github.com/sai-ydev/adt7410)
+2. Analog ADT74x0 driver - [Link](https://github.com/analogdevicesinc/EVAL-ADICUP360/tree/master/projects/ADuCM360_demo_adt7420_pmdz)
