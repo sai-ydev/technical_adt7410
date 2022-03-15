@@ -1,4 +1,4 @@
-# Yardstick Technical Challenge
+# ADT74x0 Technical Challenge
 
 This repository contains the Python driver and the hardware design files meant for a take-home assignment offered by an organization. 
 
