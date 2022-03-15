@@ -12,7 +12,7 @@ The schematic has been started, and is provided for you as a kicad file, but rea
 Write enough Python software to use this as a thermostat that can keep the temperature above a set point as well as log the temperature averaged over the last ten seconds, every ten seconds. Target Python 3.6 and write against the following API for board support.
 
 ## My Submission
- I used an ADT7420 temperature sensor. This was because AD7414 were generally not available and I approached this problem as if I were actually designing a PCB for a real-life project. This repository includes the python drivers. 
+ I used an ADT7420 temperature sensor. This was because AD7414 were generally not available from major distributors and I approached this problem as if I were actually designing a PCB for a real-life project. This repository includes the python drivers. 
  
  * `adt7420.py` - Drivers for the ADT7420 Temperature Sensor
  * `thermostat.py` - Thermostat class for interfacing temperature sensor and turn on heater
