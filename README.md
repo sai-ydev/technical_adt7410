@@ -1,6 +1,6 @@
 # Yardstick Technical Challenge
 
-This repository contains the Python driver and the hardware design files meant for a take-home assignment offered by [Yardstick](https://www.useyardstick.com/). 
+This repository contains the Python driver and the hardware design files meant for a take-home assignment offered by an organization. 
 
 ## Task Briefing
 
